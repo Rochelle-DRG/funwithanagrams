@@ -3,7 +3,20 @@ Input: an array of strings
 Output: an array of strings minus any strings 
     that were anagrams of a previous string */
 
+function funWithAnagrams(inputArray) {
+    let outputArray = [];
+    let sortedArray = [];
+    for (let i = 0; i < inputArray.length; i++) {
+        let sortedString = inputArray[i].toUpperCase().split("").sort().join("");
+        if (!sortedArray.includes(sortedString)){
+            outputArray.push(inputArray[i]);
+        }
+        sortedArray.push(sortedString);
+    }
+    return outputArray;
+}
 
+/** Some test cases**/
 let noAnagrams = {
     input: ["asdf", "qwer", "sdgg", "fdhg"],
     expectedOutput: ["asdf", "qwer", "sdgg", "fdhg"]
@@ -29,24 +42,7 @@ let capsAnagrams2 = {
     expectedOutput: ["Hello", "Rose", "Michelle", "Minisha"]
 }
 
-
-function funWithAnagrams(inputArray) {
-    let outputArray = [];
-    let sortedArray = [];
-    for (let i = 0; i < inputArray.length; i++) {
-        let sortedString = inputArray[i].toUpperCase().split("").sort().join("");
-        if (!sortedArray.includes(sortedString)){
-            outputArray.push(inputArray[i]);
-        }
-        sortedArray.push(sortedString);
-    }
-    return outputArray;
-}
-// funWithAnagrams(oneAnagram.input);
-
 function testFWA(inputArray){
-    // console.log(funWithAnagrams(inputArray.input));
-    console.log(inputArray.expectedOutput);
     if (JSON.stringify(funWithAnagrams(inputArray.input)) === JSON.stringify(inputArray.expectedOutput)) {
         console.log("pass");
     }
@@ -64,22 +60,16 @@ function testFWA(inputArray){
 
 let userInputArray = ["Hello", "Rose","esor","Michelle", "Minisha"];
 let userInputDisplay = "["+userInputArray.toString()+"]";
-// console.log(userInputDisplay);
 
 let updateDisplayString = function(){
     userInputDisplay = "["+userInputArray.toString()+"]";
     document.getElementById("display-array").innerHTML = userInputDisplay;
-    console.log(userInputArray);
-    console.log(userInputDisplay);
 }
 updateDisplayString(); //test
 let clearArray = function(){
     userInputArray = [];
     updateDisplayString();
 
-    console.log("array cleared");
-    console.log(userInputArray);
-    console.log(userInputDisplay);
     document.getElementById("output").innerHTML = "Output:";
 }
 
