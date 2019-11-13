@@ -17,7 +17,7 @@
             let outputArray = [];
             let sortedArray = [];
             for (let i = 0; i < inputArray.length; i++) {
-                let sortedString = inputArray[i].split("").sort().join("").toUpperCase();
+                let sortedString = inputArray[i].toUpperCase().split("").sort().join("");
                 if (!sortedArray.includes(sortedString)){
                     outputArray.push(inputArray[i]);
                 }
