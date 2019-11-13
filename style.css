@@ -1,0 +1,16 @@
+h1 {
+    font-weight: bolder;
+    padding-bottom: 0em;
+    margin-bottom: 0em;
+    color: magenta;
+}
+.my-button {
+    background-color: lightgreen;
+    padding: 3px;
+    /* margin: 3px; */
+    border-width: 1px;
+    border-color: red;
+    width: 50px;
+    text-align: center;
+    margin-left: 80px
+}

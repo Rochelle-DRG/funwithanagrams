@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Hello Hyland</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body id="body">
+    <PRE>
+    <h1>Fun With Anagrams</h1> 
+    <h2 class="my-0 py-0">Welcome to Rochelle's Solution!</h2>
+    <code class="code"><PRE>
+        function funWithAnagrams(inputArray) {
+            let outputArray = [];
+            let sortedArray = [];
+            for (let i = 0; i < inputArray.length; i++) {
+                let sortedString = inputArray[i].split("").sort().join("").toUpperCase();
+                if (!sortedArray.includes(sortedString)){
+                    outputArray.push(inputArray[i]);
+                }
+                sortedArray.push(sortedString);
+            }
+            return outputArray;
+        }
+    </PRE></code>
+    <h2>Test It!</h2>
+    <h3 id="display-array">Input: []</h3>
+    <h3 id="output">Output:</h3>
+
+    <div id="testIt">
+        <h4 class="button">Add a string:</h4>
+        <input type="text" id="userInput" placeholder="Type A String Here">
+        <div onclick="addToTestArray()" class="button my-button">Add</div>
+    </div>
+    <div id="clear" onclick="clearArray()" class="button my-button">Clear</div>
+
+
+
+    <script src="index.js"></script>
+</body>
+
+</html>
